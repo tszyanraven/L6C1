@@ -1,17 +1,37 @@
 
 <center>
-  <form method="POST">
+  <form method="POST" onsubmit="changeText(event)">
      <br />
      
      <br />
       <label>Insert your age (1-99): </label>
-      <input type="number" name="age" min="1" max="99">
+      <input type="number" name="age" id="ageInput" min="1" max="99">
       <br />
       <label>Insert your gender (0 for male, 1 for female): </label>
-      <input type="number" name="gender" min="0" max="1">
+      <input type="number" name="gender" id="genderInput" min="0" max="1">
       <input type="submit">
       <br />
       <br /><br />
-      <label>{{ href2 }} </label>
+      <label id="responseLabel">Awaiting response</label>
   </form>
 </center>
+
+<script>
+  function changeText(event){
+    event.preventDefault();
+
+    var ageInput = document.getElementById("ageInput");
+    var genderInput = document.getElementById("genderInput");
+    var age = parseInt(ageInput.value);
+    var gender = parseInt(genderInput.value);
+
+    if (age>=1 && age <= 99 && (gender === 0 || gender === 1)){
+      var texts = ["quartz", "digital", "smart"];
+      var randomIndex = Math.floor(Math.random() * texts.length);
+      var label = document.getElementById("responseLabel");
+      label.textContent = texts[randomIndex];
+    }else{
+      var label = document.getElementById("responseLabel");
+      label.textContent = "Invalid age or gender";}
+  }
+</script>
