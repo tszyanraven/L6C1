@@ -12,7 +12,6 @@
       <input type="submit">
       <br />
       <br /><br />
-      <label id="responseLabel">Awaiting response</label>
   </form>
 </center>
 
@@ -26,7 +25,7 @@
     var gender = parseInt(genderInput.value);
 
     if (age>=1 && age <= 99 && (gender === 0 || gender === 1)){
-      var texts = ["quartz", "digital", "smart"];
+      var texts = ["The suitable watch for you is 'quartz'", "The suitable watch for you is 'digital'", "The suitable watch for you is 'smart'"];
       var randomIndex = Math.floor(Math.random() * texts.length);
       var label = document.getElementById("responseLabel");
       label.textContent = texts[randomIndex];
